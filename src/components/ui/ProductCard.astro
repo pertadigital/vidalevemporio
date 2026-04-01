@@ -25,7 +25,18 @@ const whatsappHref = `${whatsappUrl}?text=${encodeURIComponent(`Olá! Tenho inte
     gradient,
     featured ? 'h-64 md:h-full' : 'h-44',
   ]}>
-    <span class:list={['select-none', featured ? 'text-8xl' : 'text-6xl']}>{product.emoji}</span>
+    {product.image ? (
+      <img
+        src={product.image}
+        alt={product.name}
+        width="256"
+        height="256"
+        loading="lazy"
+        class:list={['object-contain relative z-10 drop-shadow-lg', featured ? 'w-48 h-48' : 'w-32 h-32']}
+      />
+    ) : (
+      <span class:list={['select-none', featured ? 'text-8xl' : 'text-6xl']}>{product.emoji}</span>
+    )}
     <!-- Decorative glow -->
     <div class="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent"></div>
     <!-- Badge -->

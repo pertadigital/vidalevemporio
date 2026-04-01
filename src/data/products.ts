@@ -5,6 +5,7 @@ export interface Product {
   badge?: 'novo' | 'popular' | 'oferta';
   category: 'chas' | 'temperos' | 'suplementos' | 'graos';
   emoji: string;
+  image?: string;
   description: string;
 }
 
@@ -41,6 +42,15 @@ export const products: Product[] = [
     category: 'graos',
     emoji: '🥣',
     description: 'Castanhas, aveia e mel — sem conservantes',
+  },
+  {
+    name: 'Extrato de Própolis Verde 30ml',
+    price: 35.90,
+    badge: 'popular',
+    category: 'suplementos',
+    emoji: '🍯',
+    image: '/propolis-sem-fundo-9b6280894e2e60842417745267231064-1024-1024.webp',
+    description: 'Própolis verde COAPIS — reforço natural para a imunidade',
   },
   {
     name: 'Spirulina em Cápsulas',
