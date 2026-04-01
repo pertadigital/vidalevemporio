@@ -1,0 +1,43 @@
+---
+import type { Category } from '../../data/categories';
+
+interface Props {
+  category: Category;
+  large?: boolean;
+}
+
+const { category, large = false } = Astro.props;
+---
+
+<a
+  href={`#produtos`}
+  class:list={[
+    'group relative rounded-2xl overflow-hidden border border-white/5 transition-all duration-500',
+    'hover:border-primary/20 hover:shadow-[0_0_40px_rgba(59,175,59,0.08)]',
+    large ? 'row-span-2' : '',
+  ]}
+>
+  <!-- Gradient Background -->
+  <div class:list={[
+    'absolute inset-0 bg-gradient-to-br opacity-60 group-hover:opacity-80 transition-opacity duration-500',
+    category.gradient,
+  ]}></div>
+
+  <!-- Content -->
+  <div class:list={[
+    'relative flex flex-col justify-end p-6',
+    large ? 'h-full min-h-[320px]' : 'h-48 md:h-56',
+  ]}>
+    <span class:list={['block mb-3', large ? 'text-6xl' : 'text-4xl']}>{category.emoji}</span>
+    <h3 class:list={['font-display font-bold text-text', large ? 'text-3xl' : 'text-xl']}>
+      {category.name}
+    </h3>
+    <p class="text-text-muted text-sm mt-1">{category.description}</p>
+    <div class="flex items-center gap-2 mt-3">
+      <span class="text-xs text-text-dim">{category.count} produtos</span>
+      <svg class="w-4 h-4 text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </div>
+  </div>
+</a>

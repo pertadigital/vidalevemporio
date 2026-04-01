@@ -1,0 +1,122 @@
+---
+import WhatsAppButton from './ui/WhatsAppButton.astro';
+---
+
+<section class="relative overflow-hidden min-h-[90vh] flex items-center">
+  <!-- Background Effects -->
+  <div class="absolute inset-0 pointer-events-none">
+    <!-- Gradient orbs -->
+    <div class="absolute top-1/4 -left-32 w-96 h-96 bg-primary/15 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-1/4 right-0 w-80 h-80 bg-secondary/10 rounded-full blur-[100px]"></div>
+    <div class="absolute top-0 right-1/3 w-64 h-64 bg-primary/8 rounded-full blur-[80px]"></div>
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 md:px-8 py-20 md:py-0 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-20 items-center">
+      <!-- Content — Left -->
+      <div class="space-y-8">
+        <!-- Eyebrow -->
+        <div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5">
+          <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+          <span class="text-primary text-xs font-medium tracking-wide uppercase">Produtos 100% naturais</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.08] tracking-tight">
+          Sua saúde<br />
+          começa com o<br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-secondary">natural</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-text-muted text-lg sm:text-xl max-w-lg leading-relaxed">
+          Chás, temperos, suplementos e grãos selecionados com carinho. Qualidade que você sente no primeiro uso.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4">
+          <a
+            href="#produtos"
+            class="inline-flex items-center gap-2 bg-primary hover:bg-primary-light text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,175,59,0.4)] text-lg"
+          >
+            Ver produtos
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <WhatsAppButton variant="outline" text="Fale conosco" />
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4">
+          <div class="flex items-center gap-2 text-text-muted text-sm">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span>Sem conservantes</span>
+          </div>
+          <div class="flex items-center gap-2 text-text-muted text-sm">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span>Selecionado manualmente</span>
+          </div>
+          <div class="flex items-center gap-2 text-text-muted text-sm">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span>Entrega rápida</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual — Right -->
+      <div class="relative hidden lg:block">
+        <!-- Decorative product composition -->
+        <div class="relative w-full aspect-square max-w-md mx-auto">
+          <!-- Glow ring -->
+          <div class="absolute inset-8 rounded-full border border-primary/20 animate-[spin_20s_linear_infinite]">
+            <div class="absolute -top-1.5 left-1/2 w-3 h-3 bg-primary rounded-full"></div>
+          </div>
+          <div class="absolute inset-16 rounded-full border border-secondary/10 animate-[spin_30s_linear_infinite_reverse]">
+            <div class="absolute -top-1 left-1/3 w-2 h-2 bg-secondary rounded-full"></div>
+          </div>
+
+          <!-- Central logo/visual -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-48 h-48 rounded-full bg-gradient-to-br from-primary/20 to-secondary/10 backdrop-blur-sm flex items-center justify-center shadow-[0_0_60px_rgba(59,175,59,0.15)]">
+              <img src="/logo.png" alt="" class="w-36 h-36 object-contain" aria-hidden="true" />
+            </div>
+          </div>
+
+          <!-- Floating product badges -->
+          <div class="absolute top-6 right-8 bg-bg-card/90 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-3 animate-[float_6s_ease-in-out_infinite]">
+            <span class="text-2xl">🍵</span>
+            <p class="text-xs text-text-muted mt-1">Chás</p>
+          </div>
+          <div class="absolute bottom-16 left-4 bg-bg-card/90 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-3 animate-[float_5s_ease-in-out_infinite_0.5s]">
+            <span class="text-2xl">🌿</span>
+            <p class="text-xs text-text-muted mt-1">Temperos</p>
+          </div>
+          <div class="absolute bottom-4 right-16 bg-bg-card/90 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-3 animate-[float_7s_ease-in-out_infinite_1s]">
+            <span class="text-2xl">🌾</span>
+            <p class="text-xs text-text-muted mt-1">Grãos</p>
+          </div>
+          <div class="absolute top-1/3 left-0 bg-bg-card/90 backdrop-blur-sm border border-white/10 rounded-2xl px-4 py-3 animate-[float_5.5s_ease-in-out_infinite_1.5s]">
+            <span class="text-2xl">💪</span>
+            <p class="text-xs text-text-muted mt-1">Suplementos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+</style>

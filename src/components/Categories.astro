@@ -1,0 +1,31 @@
+---
+import CategoryTile from './ui/CategoryTile.astro';
+import { categories } from '../data/categories';
+---
+
+<section id="categorias" class="relative py-20 md:py-28">
+  <!-- Subtle bg shift -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bg-card/30 to-transparent pointer-events-none"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 md:px-8">
+    <!-- Section Header — offset right -->
+    <div class="max-w-2xl ml-auto text-right mb-14" data-reveal>
+      <span class="text-secondary text-sm font-medium uppercase tracking-wider">Categorias</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-3 leading-tight">
+        Encontre o que<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-primary">você precisa</span>
+      </h2>
+    </div>
+
+    <!-- Uneven Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-auto">
+      <!-- First tile spans 2 rows on lg -->
+      <div class="lg:row-span-2">
+        <CategoryTile category={categories[0]} large />
+      </div>
+      {categories.slice(1).map((cat) => (
+        <CategoryTile category={cat} />
+      ))}
+    </div>
+  </div>
+</section>

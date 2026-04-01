@@ -1,0 +1,23 @@
+---
+interface Props {
+  type: 'novo' | 'popular' | 'oferta';
+}
+
+const { type } = Astro.props;
+
+const styles = {
+  novo: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
+  popular: 'bg-primary/20 text-primary-light border-primary/30',
+  oferta: 'bg-secondary/20 text-secondary border-secondary/30',
+};
+
+const labels = {
+  novo: 'Novo',
+  popular: 'Mais vendido',
+  oferta: 'Oferta',
+};
+---
+
+<span class:list={['inline-flex items-center text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border', styles[type]]}>
+  {labels[type]}
+</span>

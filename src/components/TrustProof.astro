@@ -1,0 +1,70 @@
+---
+const proofs = [
+  {
+    number: '01',
+    title: 'Origem rastreada',
+    text: 'Cada produto passa por uma curadoria rigorosa. Trabalhamos diretamente com produtores que compartilham nosso compromisso com a qualidade.',
+    accent: 'primary',
+  },
+  {
+    number: '02',
+    title: 'Sem aditivos químicos',
+    text: 'Nada de conservantes artificiais, corantes ou aromatizantes. Apenas o que a natureza oferece de melhor, na forma mais pura possível.',
+    accent: 'secondary',
+  },
+  {
+    number: '03',
+    title: 'Atendimento humano',
+    text: 'Dúvidas sobre qual produto escolher? Nossa equipe te orienta pelo WhatsApp com conhecimento real sobre cada item da loja.',
+    accent: 'primary',
+  },
+];
+---
+
+<section class="relative py-20 md:py-28 overflow-hidden">
+  <!-- Background accent -->
+  <div class="absolute top-1/2 -right-40 w-80 h-80 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <!-- Header -->
+    <div class="max-w-xl mb-16" data-reveal>
+      <span class="text-primary text-sm font-medium uppercase tracking-wider">Por que nos escolher</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl mt-3 leading-tight">
+        Confiança que vem<br />da <span class="text-primary">transparência</span>
+      </h2>
+    </div>
+
+    <!-- Staggered blocks -->
+    <div class="space-y-8 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-16 md:gap-y-12">
+      {proofs.map((proof, i) => (
+        <div class:list={[
+          'group relative',
+          i % 2 === 1 ? 'md:translate-y-16' : '',
+        ]}>
+          <div class="flex gap-6">
+            <!-- Number -->
+            <div class:list={[
+              'shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center border font-display font-bold text-lg',
+              proof.accent === 'primary'
+                ? 'bg-primary/10 border-primary/20 text-primary'
+                : 'bg-secondary/10 border-secondary/20 text-secondary',
+            ]}>
+              {proof.number}
+            </div>
+            <!-- Content -->
+            <div class="space-y-2">
+              <h3 class="font-display font-semibold text-xl text-text">{proof.title}</h3>
+              <p class="text-text-muted leading-relaxed text-sm">{proof.text}</p>
+            </div>
+          </div>
+          <!-- Decorative line -->
+          <div class:list={[
+            'hidden md:block absolute -bottom-6 left-7 w-px h-6',
+            proof.accent === 'primary' ? 'bg-primary/20' : 'bg-secondary/20',
+            i === proofs.length - 1 ? 'md:hidden' : '',
+          ]}></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,11 +1,29 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TrustProof from '../components/TrustProof.astro';
+import FeaturedProducts from '../components/FeaturedProducts.astro';
+import Categories from '../components/Categories.astro';
+import Lifestyle from '../components/Lifestyle.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/ui/WhatsAppButton.astro';
 ---
 
 <Layout>
-	<Welcome />
+  <Header />
+  <main class="pt-16 md:pt-20">
+    <Hero />
+    <TrustProof />
+    <FeaturedProducts />
+    <Categories />
+    <Lifestyle />
+    <Testimonials />
+    <CtaBanner />
+  </main>
+  <Footer />
+  <!-- Floating WhatsApp Button -->
+  <WhatsAppButton variant="floating" />
 </Layout>

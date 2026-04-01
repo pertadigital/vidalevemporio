@@ -1,0 +1,71 @@
+---
+import Badge from './Badge.astro';
+import { whatsappUrl } from '../../data/social';
+import type { Product } from '../../data/products';
+import { categoryGradients } from '../../data/products';
+
+interface Props {
+  product: Product;
+  featured?: boolean;
+}
+
+const { product, featured = false } = Astro.props;
+const gradient = categoryGradients[product.category];
+const whatsappHref = `${whatsappUrl}?text=${encodeURIComponent(`Olá! Tenho interesse no produto: ${product.name}`)}`;
+---
+
+<div class:list={[
+  'group relative rounded-2xl border border-white/5 overflow-hidden transition-all duration-500',
+  'hover:border-primary/20 hover:shadow-[0_0_40px_rgba(59,175,59,0.08)]',
+  featured ? 'row-span-2' : '',
+]}>
+  <!-- Gradient visual area -->
+  <div class:list={[
+    'relative bg-gradient-to-br flex items-center justify-center overflow-hidden',
+    gradient,
+    featured ? 'h-64 md:h-full' : 'h-44',
+  ]}>
+    <span class:list={['select-none', featured ? 'text-8xl' : 'text-6xl']}>{product.emoji}</span>
+    <!-- Decorative glow -->
+    <div class="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent"></div>
+    <!-- Badge -->
+    {product.badge && (
+      <div class="absolute top-3 left-3">
+        <Badge type={product.badge} />
+      </div>
+    )}
+  </div>
+
+  <!-- Content -->
+  <div class:list={['bg-bg-card p-5', featured ? 'space-y-4' : 'space-y-3']}>
+    <h3 class:list={['font-display font-semibold text-text leading-tight', featured ? 'text-xl' : 'text-base']}>
+      {product.name}
+    </h3>
+    <p class:list={['text-text-muted leading-relaxed', featured ? 'text-sm' : 'text-xs']}>
+      {product.description}
+    </p>
+    <div class="flex items-end justify-between gap-3">
+      <div class="flex items-baseline gap-2">
+        <span class:list={['font-display font-bold text-primary', featured ? 'text-2xl' : 'text-lg']}>
+          R$ {product.price.toFixed(2).replace('.', ',')}
+        </span>
+        {product.oldPrice && (
+          <span class="text-text-dim text-xs line-through">
+            R$ {product.oldPrice.toFixed(2).replace('.', ',')}
+          </span>
+        )}
+      </div>
+      <a
+        href={whatsappHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 bg-primary/10 hover:bg-primary text-primary hover:text-white p-2.5 rounded-xl transition-all duration-300 group-hover:scale-105"
+        aria-label={`Comprar ${product.name}`}
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
